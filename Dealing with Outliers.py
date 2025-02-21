@@ -8,9 +8,7 @@
 
 import pandas as pd
 
-
 # In[2]:
-
 
 my_df = pd.DataFrame({"input1" : [15,41,44,47,50,53,56,59,99],
                       "input2" : [29,41,44,47,50,53,56,59,66]})
@@ -34,6 +32,7 @@ outlier_columns =["input1", "input2"]
 for column in outlier_columns:
     lower_quartile = my_df[column].quantile(0.25)
     upper_quartile = my_df[column].quantile(0.75)
+  
     iqr = upper_quartile - lower_quartile
     iqr_extended = iqr*1.5
     min_border = lower_quartile-iqr_extended
